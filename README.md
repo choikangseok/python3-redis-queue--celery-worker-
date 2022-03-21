@@ -67,7 +67,7 @@ CELERYD_GROUP= group
 CELERY_CREATE_DIRS=1          
 
 ```
-#systemd(systemctl) celery.service 설정
+# systemd(systemctl) celery.service 설정
 - EnvironmentFile = celery.conf Path 
 - WorkingDirectory = Project Path
 - ExecStart : celery start
