@@ -21,8 +21,8 @@ $ sudo apt-get install redis-server -y
 ```
 
 # celery.conf 설정
-- /home/<user>/<project>/ 경로에 프로젝트가 있다는 설정으로 가정
-- <user>, <project>, <group> 프로젝트에 맞게 설정
+- /home/user/project/ 경로에 프로젝트가 있다는 설정으로 가정
+- user, project, group 프로젝트에 맞게 설정
  
 
 ```
@@ -32,14 +32,14 @@ $ sudo apt-get install redis-server -y
 CELERYD_NODES="w1"
 
 # Absolute or relative path to 'celery' command
-#CELERY_BIN="/home/<user>/.local/bin/celery"
+#CELERY_BIN="/home/user/.local/bin/celery"
 CELERY_BIN="/usr/bin/celery"
 
 # App instance to use
 CELERY_APP="tasks"
 
 # Where to chdir at start.
-CELERYD_CHDIR="/home/<user>/<project>/"
+CELERYD_CHDIR="/home/user/project/"
 
 #CELERYD_TASK_TIME_LIMIT=30
 # Extra command-line arguments to the worker
@@ -58,8 +58,8 @@ CELERYD_PID_FILE="./_proc/%n.pid"
 # Worker should run as an unprivileged user.
 # You need to create this user manually (or you can choose
 # a user/group combination that already exists
-CELERYD_USER= <user>
-CELERYD_GROUP= <group>
+CELERYD_USER= user
+CELERYD_GROUP= group
 
 # If enabled pid and log directories will be created if missing,
 # and owned by the userid/group configured.
@@ -77,10 +77,10 @@ After=network.target
 
 [Service]
 Type=forking
-User=<user>
-Group=<group>
-EnvironmentFile=/home/<user>/<project>/celery.conf
-WorkingDirectory=/home/<user>/<project>/
+User=user
+Group=group
+EnvironmentFile=/home/user/project/celery.conf
+WorkingDirectory=/home/user/project/
 
 ExecStart=/bin/sh -c '${CELERY_BIN} multi start ${CELERYD_NODES} \
   -A ${CELERY_APP} --pidfile=${CELERYD_PID_FILE} \
