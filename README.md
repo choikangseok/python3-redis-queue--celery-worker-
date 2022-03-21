@@ -67,7 +67,12 @@ CELERYD_GROUP= group
 CELERY_CREATE_DIRS=1          
 
 ```
-**celery service 설정**
+#systemd(systemctl) celery.service 설정
+- EnvironmentFile = celery.conf Path 
+- WorkingDirectory = Project Path
+- ExecStart : celery start
+- ExecStop : celery stop
+- ExecReload : celery reload
 ```
 sudo vi /etc/systemd/system/celery.service
 ```
@@ -101,9 +106,9 @@ WantedBy=multi-user.target
   
 **테스트**
 ```
-sudo systemctl enable celery
-sudo systemctl daemon-reload
-sudo systemctl start celery
+sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
+sudo systemctl daemon-reload # 편집한 설정파일 반영
+sudo systemctl start celery 
 sudo systemctl stop celery
 ```
 
