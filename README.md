@@ -66,7 +66,7 @@ CELERYD_GROUP= group
 CELERY_CREATE_DIRS=1          
 
 ```
-celery service 설정
+**celery service 설정**
 ```
 sudo vi /etc/systemd/system/celery.service
 ```
@@ -98,7 +98,7 @@ LimitNOFILE=80000
 WantedBy=multi-user.target
 ```
   
-테스트
+**테스트**
 ```
 sudo systemctl enable celery
 sudo systemctl daemon-reload
