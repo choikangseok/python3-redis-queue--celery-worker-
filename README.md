@@ -1,10 +1,10 @@
 # python3-redis-queue-celery-worker
-Asynchronous task queue/job queue
-Ubuntu(20.04) 환경에서 파이썬3 비동기 프로세스 구성하는 방법
+Asynchronous Process using Python3 ( Redis + Celery )
+OS server : Ubuntu(20.04)
+Language : Python3.8
 
 
-# Ubuntu 20.04 server +  Python3.8 
-
+# Ubuntu 20.04 server +  Python3.8 구성
 ```
 $ sudo apt update -y
 $ sudo apt upgrade -y
