@@ -58,9 +58,7 @@ CELERYD_GROUP= **<group>**
 
 # If enabled pid and log directories will be created if missing,
 # and owned by the userid/group configured.
-CELERY_CREATE_DIRS=1
-~                        
-
+CELERY_CREATE_DIRS=1          
 
 ```
 
