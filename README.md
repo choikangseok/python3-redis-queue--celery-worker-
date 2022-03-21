@@ -74,7 +74,7 @@ CELERY_CREATE_DIRS=1
 - ExecStop : celery stop
 - ExecReload : celery reload
 ```
-sudo vi /etc/systemd/system/celery.service
+$ sudo vi /etc/systemd/system/celery.service
 ```
 ```
 [Unit]
@@ -106,9 +106,9 @@ WantedBy=multi-user.target
   
 **테스트**
 ```
-sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
-sudo systemctl daemon-reload # 편집한 설정파일 반영
-sudo systemctl start celery 
-sudo systemctl stop celery
+$ sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
+$ sudo systemctl daemon-reload # 편집한 설정파일 반영
+$ sudo systemctl start celery 
+$ sudo systemctl stop celery
 ```
 
