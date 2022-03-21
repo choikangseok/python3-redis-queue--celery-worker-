@@ -24,7 +24,7 @@ $ sudo apt-get install redis-server -y
 # celery.conf 설정
 - /home/user/project/ 프로젝트 경로
 - user, project, group 프로젝트에 맞게 설정
-- CELERYD_OPTS="--time-limit=500 --concurrency=60" celery worker 개수(60), 타임 리밋(500초)
+- CELERYD_OPTS="--time-limit=500 --concurrency=60" celery worker 수(60), time-limit(500초)
 
 ```
 [celery.conf]
