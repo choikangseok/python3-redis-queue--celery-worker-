@@ -3,7 +3,7 @@ Asynchronous task queue/job queue
 Ubuntu(20.04) 환경에서 파이썬3 비동기 프로세스 구성하는 방법
 
 
-# Ubuntu 20.04 서버에 Python3.8 환경 구성하기
+# Ubuntu 20.04 server +  Python3.8 
 
 ```
 $ sudo apt update -y
