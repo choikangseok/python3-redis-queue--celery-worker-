@@ -1,4 +1,4 @@
-# python3-redis-queue-celery-worker
+# Python3-Redis-queue-Celery-worker
 - Asynchronous Process using Python3 ( Redis + Celery )
 - OS server : Ubuntu(20.04)
 - Language : Python3.8
