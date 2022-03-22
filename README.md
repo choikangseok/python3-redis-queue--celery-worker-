@@ -104,7 +104,7 @@ LimitNOFILE=80000
 WantedBy=multi-user.target
 ```
   
-**테스트**
+# celery 실행
 ```
 $ sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
 $ sudo systemctl daemon-reload # 편집한 설정파일 반영
