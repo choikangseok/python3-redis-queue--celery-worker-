@@ -10,3 +10,13 @@ services:
     container_name: "docker-mongodb"
     env_file:
       - .env
+  mongo-express:
+    image: mongo-express:0.54.0
+    ports:
+      - 8081:8081
+    # depends_on:
+    #   - mongodb
+    container_name: "docker-mongo-express"
+    env_file:
+      - .env_ex
+    restart: always
