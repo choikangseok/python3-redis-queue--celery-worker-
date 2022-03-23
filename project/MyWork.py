@@ -17,8 +17,8 @@ class MyWork:
         try:
             #Woker를 실행 하기위한 queue 데이터 init
             self.Objectid = Objectid
-            self.today = datetime.date.today()
             self.dict_value = {}
+            self.dict_value["Today"] = datetime.date.today()
             self.dict_value["First_value"] = First_value
             self.dict_value["Second_value"] = Second_value
 
