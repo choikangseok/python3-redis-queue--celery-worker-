@@ -1,4 +1,5 @@
 # Python3-Redis-queue-Celery-worker-MongoDB
+구성정보
 - Asynchronous Process using Python3 ( Redis + Celery )
 - OS server : Ubuntu(20.04)
 - Language : Python3.8
@@ -21,9 +22,10 @@ $ sudo update-alternatives --install /usr/bin/python3 python /usr/bin/python3.8 
 $ sudo apt install python-celery-common -y
 $ sudo apt-get install redis-server -y
 ```
+# Celery 구성
 
-# celery.conf 설정
-- /home/user/project/ : project PATH프로젝트 경로
+### celery.conf
+- /home/user/project/ : project PATH
 - Modify user, project, group 
 - CELERYD_OPTS="--time-limit=500 --concurrency=60" celery worker 수(60), time-limit(500초)
 
@@ -68,7 +70,7 @@ CELERYD_GROUP= group
 CELERY_CREATE_DIRS=1          
 
 ```
-# systemd(systemctl) celery.service 설정
+### systemd(systemctl) celery.service 설정
 - EnvironmentFile = celery.conf Path 
 - WorkingDirectory = Project Path
 - ExecStart : celery start
@@ -105,11 +107,62 @@ LimitNOFILE=80000
 WantedBy=multi-user.target
 ```
   
-# celery 실행
+### celery 실행
 ```
 $ sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
 $ sudo systemctl daemon-reload # 편집한 설정파일 반영
 $ sudo systemctl start celery 
 $ sudo systemctl stop celery
+```
+
+# MongoDB (Docker)
+
+### .env (mongodb environment)
+```
+## Mongodb
+MONGO_HOST=localhost
+MONGO_PORT=27017
+MONGO_INITDB_ROOT_USERNAME=admin
+MONGO_INITDB_ROOT_PASSWORD=password
+MONGO_INITDB_DATABASE=my_database
+
+```
+
+### .env_ex (mongo-express environment)
+```
+## Mongo Express
+ME_CONFIG_MONGODB_PORT=27017
+ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+ME_CONFIG_MONGODB_ADMINPASSWORD=password
+ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+ME_CONFIG_MONGODB_SERVER=mongodb
+ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongo:27017/
+```
+
+### docker-compose.yml
+
+```
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "${MONGO_PORT}:27017"
+    volumes:
+      - ./data/db:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    container_name: "docker-mongodb"
+    env_file:
+      - .env
+  mongo-express:
+    image: mongo-express:0.54.0
+    ports:
+      - 8081:8081
+    # depends_on:
+    #   - mongodb
+    container_name: "docker-mongo-express"
+    env_file:
+      - .env_ex
+    restart: always
 ```
 
