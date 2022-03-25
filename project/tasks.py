@@ -1,4 +1,4 @@
-from Mywork import *
+from MyWork import *
 
 
 
