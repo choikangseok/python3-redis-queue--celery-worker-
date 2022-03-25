@@ -1,4 +1,5 @@
 data/db
 _proc/*
 _log/*
+venv
 
