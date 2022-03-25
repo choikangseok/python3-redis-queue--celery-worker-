@@ -14,11 +14,15 @@ $ sudo apt upgrade -y
 $ sudo apt-get install python3.8 -y
 $ sudo apt-get install python3-pip -y
 
+
 $ alias python=python3.8
 $ alias pip=pip3
 $ sudo update-alternatives --install /usr/bin/python3 python /usr/bin/python3.8 1
 
 
+$ pip install celery==4.4.6
+$ pip install redis==3.5.3
+$ pip install bson
 $ sudo apt install python-celery-common -y
 $ sudo apt-get install redis-server -y
 ```
