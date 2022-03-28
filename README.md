@@ -1,12 +1,12 @@
-# Python3-Redis-queue-Celery-worker-MongoDB
-구성정보
+## Python3-Redis-queue-Celery-worker-MongoDB
+### 구성정보
 - Asynchronous Process using Python3 (Redis + Celery)
 - OS server : Ubuntu(20.04)
 - Language : Python3.8
 - Database : MongoDB + MongoExpress (Docker-compose)
 
 
-# Ubuntu 20.04 server +  Python3.8 구성
+## Ubuntu 20.04 server +  Python3.8 구성
 ```
 $ sudo apt update -y
 $ sudo apt upgrade -y
@@ -26,9 +26,9 @@ $ pip install bson
 $ sudo apt install python-celery-common -y
 $ sudo apt-get install redis-server -y
 ```
-# Celery 구성
+## Celery 구성
 
-### celery.conf
+#### celery.conf
 - /home/user/project/ : project PATH
 - Modify user, project, group 
 - CELERYD_OPTS="--time-limit=500 --concurrency=60" celery worker 수(60), time-limit(500초)
@@ -74,7 +74,7 @@ CELERYD_GROUP= group
 CELERY_CREATE_DIRS=1          
 
 ```
-### systemd(systemctl) celery.service 설정
+#### systemd(systemctl) celery.service 설정
 - EnvironmentFile = celery.conf Path 
 - WorkingDirectory = Project Path
 - ExecStart : celery start
@@ -111,7 +111,7 @@ LimitNOFILE=80000
 WantedBy=multi-user.target
 ```
   
-### celery 실행
+#### celery 실행
 ```
 $ sudo systemctl enable celery # 서버 부팅시 자동 실행 disable : 자동 실행 X
 $ sudo systemctl daemon-reload # 편집한 설정파일 반영
@@ -119,9 +119,9 @@ $ sudo systemctl start celery
 $ sudo systemctl stop celery
 ```
 
-# MongoDB (Docker)
+## MongoDB (Docker)
 
-### .env (mongodb environment)
+#### .env (mongodb environment)
 ```
 ## Mongodb
 MONGO_HOST=localhost
@@ -132,7 +132,7 @@ MONGO_INITDB_DATABASE=my_database
 
 ```
 
-### .env_ex (mongo-express environment)
+#### .env_ex (mongo-express environment)
 ```
 ## Mongo Express
 ME_CONFIG_MONGODB_PORT=27017
@@ -143,7 +143,7 @@ ME_CONFIG_MONGODB_SERVER=mongodb
 ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongo:27017/
 ```
 
-### docker-compose.yml
+#### docker-compose.yml
 
 ```
 version: '3'
