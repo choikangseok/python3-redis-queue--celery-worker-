@@ -1,23 +1,24 @@
 from tasks import *
 import csv,sys
+import os
 
 def main(argv):
     if len(argv) != 3:
         print("Usage python run_tasks.py <input_file> <use_collections>")
         exit(0)
 
-    input_file = argv
-    collection_num = int(argv)
+    input_file = argv[1]
+    collection_num = int(argv[2])
 
 
     #수집 유형에 따른 다른 task를 실행하기 위함
     if not collection_num in range(0, 4):
         print("Collections num range in [0,1,2,3]")
         exit(0)
-    file_name, file_ext = os.path.splitext(input_file)
+
 
     # Check file extension
-    if file_ext not in '.csv':
+    if input_file[-4:] != '.csv':
         print("Only input .csv format")
         exit(0)
 
