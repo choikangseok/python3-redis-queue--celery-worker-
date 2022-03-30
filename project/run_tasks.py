@@ -47,6 +47,6 @@ def main(argv):
         return True
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main(sys.argv)
         # Check parameter
         # run_tasks.py <csv file>
