@@ -28,24 +28,25 @@ def main(argv):
         with open(input_file, 'r', encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for i, row in enumerate(reader):
+
+                # "_id","First_value","Second_value","Today"
                 Objectid = row['_id']
                 First_value = row['_first_value']
                 Second_value = row['_second_value']
 
-                #수집 유형에 따라 다른 task를 실행
-                if collection_num == 0:
-                    result = my_task_0.delay(Objectid, First_value, Second_value)
-                elif collection_num == 1:
-                    result = my_task_1.delay(Objectid, First_value, Second_value)
-                elif collection_num == 2:
-                    result = my_task_2.delay(Objectid, First_value, Second_value)
-                elif collection_num == 3:
-                    result = my_task_3.delay(Objectid, First_value, Second_value)
+                # 수집 유형에 따라 다른 task를 실행
+                # if collection_num == 0:
+                #     result = my_task_0.delay(Objectid, First_value, Second_value)
+                # elif collection_num == 1:
+                #     result = my_task_1.delay(Objectid, First_value, Second_value)
+                # elif collection_num == 2:
+                #     result = my_task_2.delay(Objectid, First_value, Second_value)
+                # elif collection_num == 3:
+                #     result = my_task_3.delay(Objectid, First_value, Second_value)
+                return True
     except:
         return False
-    else:
-        print("[run_tasks.py]",result)
-        return True
+
 
 if __name__ == '__main__':
     main(sys.argv)
