@@ -9,7 +9,6 @@ app = Celery('tasks', backend='rpc://', broker='redis://localhost:6379')
 @app.task(bind=True, name='tasks.my_task_0.jobs', soft_time_limit=300)
 def my_task_0(self, Objectid, First_value, Second_value):
     try:
-
         obj = MyWork(Objectid, First_value, Second_value, logger)
         logger.info(f"Exec MyWork")
 
@@ -28,7 +27,8 @@ def my_task_0(self, Objectid, First_value, Second_value):
     except Exception as e:
         logger.error(f"[my_task_0], [{e}]")
     finally:
-        return f"{obj.today} {obj.Objectid} finished!"
+        return True
+        # return f"{obj.today} {obj.Objectid} finished!"
 
 @app.task(bind=True, name='tasks.my_task_1.jobs', soft_time_limit=300)
 def my_task_1(self, Objectid, First_value, Second_value):
@@ -39,7 +39,8 @@ def my_task_1(self, Objectid, First_value, Second_value):
     except Exception as e:
         logging.error(f"[my_task_1], [{e}]")
     finally:
-        return f"{obj.today} {obj.Objectid} finished!"
+        return True
+        # return f"{obj.today} {obj.Objectid} finished!"
 
 @app.task(bind=True, name='tasks.my_task_2.jobs', soft_time_limit=300)
 def my_task_2(self, Objectid, First_value, Second_value):
@@ -50,7 +51,8 @@ def my_task_2(self, Objectid, First_value, Second_value):
     except Exception as e:
         logging.error(f"[my_task_2], [{e}]")
     finally:
-        return f"{obj.today} {obj.Objectid} finished!"
+        return True
+        # return f"{obj.today} {obj.Objectid} finished!"
 
 @app.task(bind=True, name='tasks.my_task_3.jobs', soft_time_limit=300)
 def my_task_3(self, Objectid, First_value, Second_value):
@@ -61,4 +63,5 @@ def my_task_3(self, Objectid, First_value, Second_value):
     except Exception as e:
         logging.error(f"[my_task_3], [{e}]")
     finally:
-        return f"{obj.today} {obj.Objectid} finished!"
+        return True
+        # return f"{obj.today} {obj.Objectid} finished!"
