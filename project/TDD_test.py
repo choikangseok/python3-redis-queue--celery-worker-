@@ -24,13 +24,5 @@ class TDDTest(unittest.TestCase):
 
         #init test
 
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
