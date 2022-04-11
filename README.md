@@ -121,7 +121,7 @@ $ sudo systemctl start celery
 $ sudo systemctl stop celery
 ```
 
-## MongoDB (Docker)
+## MongoDB (docker-compose)
 
 #### .env (mongodb environment)
 ```
