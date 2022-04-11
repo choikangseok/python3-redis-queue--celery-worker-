@@ -1,6 +1,7 @@
 # Python3-Redis-queue-Celery-worker-MongoDB
- Asynchronous Process using Python3 (Redis + Celery + MongoDB)
 ### 구성정보
+![image](https://user-images.githubusercontent.com/12148906/162760848-6f97b7aa-b675-4d76-ba95-35f57fe1a907.png)
+
 
 - OS server : Ubuntu(20.04)
 - Language : Python3.8
