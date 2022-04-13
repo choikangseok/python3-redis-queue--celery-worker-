@@ -1,5 +1,5 @@
 # Python3-Redis-queue-Celery-worker-MongoDB
-### 구성정보
+## 구성
 <img src="https://user-images.githubusercontent.com/12148906/162760848-6f97b7aa-b675-4d76-ba95-35f57fe1a907.png" width="700">
 
 
@@ -8,7 +8,7 @@
 - Database : MongoDB + MongoExpress (Docker-compose)
 
 
-## Ubuntu 20.04 server +  Python3.8 구성
+## Ubuntu 20.04 server +  Python3.8
 ```
 $ sudo apt update -y
 $ sudo apt upgrade -y
@@ -28,7 +28,7 @@ $ pip install bson
 $ sudo apt install python-celery-common -y
 $ sudo apt-get install redis-server -y
 ```
-## Celery 구성
+## Celery
 
 #### celery.conf
 - /home/user/project/ : project PATH
