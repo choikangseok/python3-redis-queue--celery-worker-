@@ -1,4 +1,6 @@
 # Python3-Redis-queue-Celery-worker-MongoDB
+
+csv파일 > redis message queue > celery worker > mongodb
 ## 구성
 <img src="https://user-images.githubusercontent.com/12148906/162760848-6f97b7aa-b675-4d76-ba95-35f57fe1a907.png" width="700">
 
